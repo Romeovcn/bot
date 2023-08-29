@@ -75,15 +75,15 @@ def check_last_nbr_etable():
     global LAST_NBR_ETABLE
     i = 0
 
-    if (pyautogui.pixel(511, 252) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 1) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 2) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 3) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 4) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 5) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 6) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 7) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 8) == (255, 255, 255)): i += 1
+    if pyautogui.pixel(509, 252) > (200, 200, 200): i += 1 #1
+    if pyautogui.pixel(509, 300) > (200, 200, 200): i += 1 #2 +48
+    if pyautogui.pixel(509, 349) > (200, 200, 200): i += 1 #3 +49
+    if pyautogui.pixel(509, 397) > (200, 200, 200): i += 1 #4 +48
+    if pyautogui.pixel(509, 446) > (200, 200, 200): i += 1 #5 +49
+    if pyautogui.pixel(509, 494) > (200, 200, 200): i += 1 #6 +48
+    if pyautogui.pixel(509, 543) > (200, 200, 200): i += 1 #7 +49
+    if pyautogui.pixel(509, 591) > (200, 200, 200): i += 1 #8 +48
+    if pyautogui.pixel(509, 640) > (200, 200, 200): i += 1 #9 +49
     if i == 0 or i > LAST_NBR_ETABLE:
         ADD_NEW = False
         print("STOP TO ADD NEW")

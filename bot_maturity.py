@@ -44,9 +44,6 @@ def ft_sleep(min_time_to_sleep, max_time_to_sleep):
         time.sleep(time_to_sleep / 100)
         i += 1
 
-def check_dd():
-
-
 def remove_done_dd():
     time.sleep(0.1)
     pyautogui.moveTo(985, 831, duration=0.1)

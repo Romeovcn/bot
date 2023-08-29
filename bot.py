@@ -45,7 +45,7 @@ def check_dd():
 
     time.sleep(0.5)
     if (pyautogui.pixel(510, 932) == (255, 255, 255)):
-        print(f"DD DETECTED")
+        print("\033[32mDD DETECTED\033[0m")
         remove_done_dd()
         if ADD_NEW:
             add_new_dd()
@@ -55,7 +55,7 @@ def check_dd():
     else:
         if ft_sleep(2.8, 2.8):
             return True
-        print(f"DD NOT DETECTED")
+        print(f".", end="")
     return False
 
 def remove_done_dd():
@@ -73,33 +73,32 @@ def check_last_nbr_etable():
     global LAST_NBR_ETABLE
     i = 0
     
-    if (pyautogui.pixel(511, 252) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 1) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 2) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 3) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 4) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 5) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 6) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 7) == (255, 255, 255)): i += 1
-    if (pyautogui.pixel(511, 252 + 47 * 8) == (255, 255, 255)): i += 1
+    if pyautogui.pixel(509, 252) > (200, 200, 200): i += 1 #1
+    if pyautogui.pixel(509, 300) > (200, 200, 200): i += 1 #2 +48
+    if pyautogui.pixel(509, 349) > (200, 200, 200): i += 1 #3 +49
+    if pyautogui.pixel(509, 397) > (200, 200, 200): i += 1 #4 +48
+    if pyautogui.pixel(509, 446) > (200, 200, 200): i += 1 #5 +49
+    if pyautogui.pixel(509, 494) > (200, 200, 200): i += 1 #6 +48
+    if pyautogui.pixel(509, 543) > (200, 200, 200): i += 1 #7 +49
+    if pyautogui.pixel(509, 591) > (200, 200, 200): i += 1 #8 +48
+    if pyautogui.pixel(509, 640) > (200, 200, 200): i += 1 #9 +49
     if i == 0 or i > LAST_NBR_ETABLE:
         ADD_NEW = False
-        print(f"STOP TO ADD NEW {i}")
+        print("\033[31mStop to add new DD!\033[0m")
         return True
     LAST_NBR_ETABLE = i
     return False
 
 def add_new_dd():
     if check_last_nbr_etable(): return
-    time_travel = random.uniform(0.1, 0.1)
 
-    time.sleep(time_travel)
-    pyautogui.moveTo(993, 151, duration=time_travel)
-    time.sleep(time_travel)
+    time.sleep(0.1)
+    pyautogui.moveTo(993, 151, duration=0.1)
+    time.sleep(0.1)
     pyautogui.leftClick()
-    time.sleep(time_travel)
-    pyautogui.moveTo(1153, 173, duration=time_travel)
-    time.sleep(time_travel)
+    time.sleep(0.1)
+    pyautogui.moveTo(1153, 173, duration=0.1)
+    time.sleep(0.1)
     pyautogui.leftClick()
 
 if __name__ == "__main__":
@@ -113,7 +112,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     bot_mode = sys.argv[1]
-    time.sleep(1)
+    time.sleep(2)
     thread_1 = threading.Thread(target=check_exit_thread)
     thread_2 = threading.Thread(target=bot_thread, args=bot_mode)
 
