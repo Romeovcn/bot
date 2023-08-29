@@ -3,14 +3,13 @@ import time
 import keyboard
 import threading
 import random
-import sys
 
 CONTINUE_THREAD = True
 ADD_NEW = True
 LAST_NBR_ETABLE = 9
 #  + 2560
 
-def check_exit_thread(): # check bot exit thread loop
+def check_exit_thread():  # check bot exit thread loop
     global CONTINUE_THREAD
 
     while CONTINUE_THREAD == True:
@@ -19,17 +18,18 @@ def check_exit_thread(): # check bot exit thread loop
         time.sleep(0.01)
     print("Stop 2 thread")
 
-def bot_thread(): # main bot thread loop
+def bot_thread():  # main bot thread loop
     global CONTINUE_THREAD
     key = "8"
 
     add_new_dd()
     while CONTINUE_THREAD:
-        for i in range(0, 10): 
+        for i in range(0, 10):
             if CONTINUE_THREAD == False:
                 break
             pyautogui.press(key)
-            if ft_sleep(3.5, 3.5): CONTINUE_THREAD = False
+            if ft_sleep(3.5, 3.5):
+                CONTINUE_THREAD = False
             key = "8" if key == "7" else "7"
         remove_done_dd()
         add_new_dd()
@@ -43,6 +43,7 @@ def ft_sleep(min_time_to_sleep, max_time_to_sleep):
             return True
         time.sleep(time_to_sleep / 100)
         i += 1
+
 
 def remove_done_dd():
     time.sleep(0.1)
