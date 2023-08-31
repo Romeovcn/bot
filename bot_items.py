@@ -79,9 +79,10 @@ def remove_items(type):
         pyautogui.leftClick()
         time.sleep(random.uniform(0.75, 1))
 
-    # x and y by type on real inventory
+    # x and y by type on real inventory (five firsts items)
     x = 1544
     y = 210
+    # x and y to drag on down inventory
     if type == "ENDURANCE":
         x_drag_to = 850
         y_drag_to = 988
@@ -138,5 +139,5 @@ def remove_items(type):
 
 if __name__ == "__main__":
     time.sleep(2)
-    # add_items("ENERGY")
-    # remove_items("ENERGY")
+    add_items("ENERGY")
+    remove_items("ENERGY")
