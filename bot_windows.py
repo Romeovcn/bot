@@ -6,7 +6,7 @@ import random
 
 
 def open_window():
-    # click to open window
+    # click to open window / position of the door of stable
     time.sleep(random.uniform(1.5, 2.5))
     pyautogui.moveTo(1023, 589, duration=0.1)
     time.sleep(random.uniform(1.5, 2.5))
@@ -54,7 +54,7 @@ def close_window():
     time.sleep(random.uniform(0.75, 1))
     pyautogui.leftClick()
 
-    # click to close window
+    # click to close window / position of the "x" to close window at the right top
     time.sleep(random.uniform(1.5, 2.5))
     pyautogui.moveTo(1579, 69, duration=0.1)
     time.sleep(random.uniform(1.5, 2.5))
