@@ -3,10 +3,12 @@ import time
 import random
 
 # order to up DD : female -----> caressor -> love -> baffle -> endurance -> energy /// male -----> baffle -> endurance -> caressor -> love -> energy
-# always keep a special dd in stable for male / female
+# always keep a special dd in etable for male / female
 
+def set_filters_stable(gender, type, is_first_cycle):
+    # if gender == "FEMALE":
+    # else:
 
-def set_filters_stable(type, first, gender):
     if gender == "FEMALE":
         nb_click_female = 4
         if first == "NO":
@@ -138,88 +140,38 @@ def set_filters_stable(type, first, gender):
         elif first == "YES":
             print("Pas encore codé")
 
-def set_filters_enclos(type):
-    if type == "NONE":
-        # click on backspace + "t" to reset filters bot
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(522, 627, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.press('backspace')
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.press('t')
-    if type == "ENERGY":
-        # click on bot searchbar
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(515, 629, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-
-        nb_click_down_arrow = 20
-        # 20 click down arrow
-        for _ in range(nb_click_down_arrow):
-            pyautogui.press('down')
-            time.sleep(0.5)
-    elif type == "LOVE":
-        # click on bot searchbar
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(515, 629, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-
-        nb_click_down_arrow = 16
-        # 16 clicks down arrow
-        for _ in range(nb_click_down_arrow):
-            pyautogui.press('down')
-            time.sleep(0.5)
-    elif type == "ENDURANCE":
-        # click on bot searchbar
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(515, 629, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-
-        nb_click_down_arrow = 18
-        # 18 clicks on down arrow
-        for _ in range(nb_click_down_arrow):
-            pyautogui.press('down')
-            time.sleep(0.5)
-    elif type == "BAFFLE":
-        # click on bot searchbar
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(515, 629, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-
-        nb_click_down_arrow = 13
-        # 13 clicks on down arrow
-        for _ in range(nb_click_down_arrow):
-            pyautogui.press('down')
-            time.sleep(0.5)
-    elif type == "CARESSOR":
-        # click on bot searchbar
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(515, 629, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-
-        nb_click_down_arrow = 12
-        # 12 clicks on down arrow
-        for _ in range(nb_click_down_arrow):
-            pyautogui.press('down')
-            time.sleep(0.5)
-
-    # click on first result
-    time.sleep(random.uniform(0.75, 1))
-    pyautogui.moveTo(632, 595, duration=0.1)
+def set_filter_enclos(type):
+    pyautogui.moveTo(901, 837, duration=0.1)
     time.sleep(random.uniform(0.75, 1))
     pyautogui.leftClick()
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.leftClick()
+    time.sleep(random.uniform(0.75, 1))
 
+    for i in range(26):
+        pyautogui.press('up')
+        time.sleep(0.1)
+
+    if type == "NONE":
+        return
+    elif type == "AMOUR":
+        nbr_click = 15
+    elif type == "ENDURANCE":
+        nbr_click = 17
+    elif type == "ENERGIE":
+        nbr_click = 20
+    elif type == "POSITIVE":
+        nbr_click = 12
+    elif type == "NEGATIVE":
+        nbr_click = 13
+    elif type == "MATURITE":
+        nbr_click = 13
+    
+    for i in range(nbr_click):
+        pyautogui.press('down')
+        time.sleep(0.1)
 
 if __name__ == "__main__":
-    time.sleep(2)
-    set_filters_enclos("NONE")
-    set_filters_enclos("LOVE")
-    set_filters_enclos("NONE")
-
+    set_filter_enclos("LOVE")
+    # set_filters_enclos("LOVE")
+    # set_filters_enclos("NONE")

@@ -2,6 +2,8 @@ import pyautogui
 import time
 import random
 
+from srcs.globals import CONTINUE_THREAD
+
 def ft_sleep(min_time_to_sleep, max_time_to_sleep):
     i = 0
     time_to_sleep = random.uniform(min_time_to_sleep, max_time_to_sleep)
@@ -10,6 +12,25 @@ def ft_sleep(min_time_to_sleep, max_time_to_sleep):
             return True
         time.sleep(time_to_sleep / 100)
         i += 1
+
+def add_new_dd(): # total time = 0.6s
+    global ADD_NEW
+    count = get_count_etable()
+
+    pyautogui.moveTo(993, 151, duration=0.1)
+    time.sleep(0.1)
+    pyautogui.leftClick()
+    time.sleep(0.1)
+    pyautogui.moveTo(1153, 173, duration=0.1)
+    time.sleep(0.1)
+    pyautogui.leftClick()
+    time.sleep(0.1)
+
+    new_count = get_count_etable()
+    print(f"count={count} new_count={new_count}")
+    if new_count == 0 or new_count > count:
+        ADD_NEW = False
+        print("\033[31mStop to add new DD!\033[0m")
 
 def remove_done_dd(): # 0.6s
     time.sleep(0.1)
