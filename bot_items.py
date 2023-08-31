@@ -6,16 +6,6 @@ import os
 
 def shutdown():
     os.system("shutdown /s /f /t 0")
-    # time.sleep(random.uniform(1.5, 2.5))
-    # pyautogui.press('win')
-    # time.sleep(random.uniform(1.5, 2.5))
-    # pyautogui.moveTo(1209, 987, duration=0.1)
-    # time.sleep(random.uniform(1.5, 2.5))
-    # pyautogui.leftClick()
-    # time.sleep(random.uniform(1.5, 2.5))
-    # pyautogui.moveTo(1178, 913, duration=0.1)
-    # time.sleep(random.uniform(1.5, 2.5))
-    # pyautogui.leftClick()
 
 # function to open stable window
 
