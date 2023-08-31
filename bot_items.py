@@ -13,6 +13,43 @@ def open_window():
 
 # function to close stable window
 def close_window():
+    
+    # click on backspace + "t" to reset filters bot
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.moveTo(522, 627, duration=0.1)
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.leftClick()
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('backspace')
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('t')
+
+    # click on backspace + "t" to reset filters top 2
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.moveTo(518, 152, duration=0.1)
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.leftClick()
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('backspace')
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('t')
+
+    # click on backspace + "t" to reset filters top 1
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.moveTo(518, 111, duration=0.1)
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.leftClick()
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('backspace')
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.press('t')
+
+    # click on minus button
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.moveTo(391, 149, duration=0.1)
+    time.sleep(random.uniform(0.75, 1))
+    pyautogui.leftClick()
+
     # click to close window
     time.sleep(random.uniform(1.5, 2.5))
     pyautogui.moveTo(1579, 69, duration=0.1)
@@ -73,6 +110,8 @@ def add_items(type):
         pyautogui.leftClick()
 
 # function to remove items
+
+
 def remove_items(type):
 
     # x, y
@@ -152,14 +191,254 @@ def remove_items(type):
 
 # order to up DD : female and male : energy -> female : love - serenity - endurance -> male : endurance - serenity - love
 # always keep a special dd in stable for male / female
-# def searchbar(type, first, gender):
-#     if first == "NON" and type == "ENERGY" and gender == "FEMALE":
+
+
+def searchbar(type, first, gender):
+    if gender == "FEMALE":
+        nb_click_female = 4
+        if first == "NON":
+
+            # click on first top searchbar
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(494, 112, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+            time.sleep(random.uniform(0.75, 1))
+
+            # 4 clicks on "m"
+            for _ in range(nb_click_female):
+                pyautogui.press('m')
+                time.sleep(0.5)
+
+            # click on first result
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(506, 144, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            # click on plus button
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(358, 115, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            # click on second searchbar
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(507, 149, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            if type == "ENERGY":
+                nb_click = 3
+                # 3 clicks on "b"
+                for _ in range(nb_click):
+                    pyautogui.press('b')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                nb_click_bot = 2
+                # 2 clicks on "e"
+                for _ in range(nb_click_bot):
+                    pyautogui.press('e')
+                    time.sleep(0.5)
+            elif type == "LOVE":
+                # 1 click on "b"
+                pyautogui.press('b')
+                time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                # 1 click on "a"
+                pyautogui.press('a')
+                time.sleep(0.5)
+            elif type == "ENDURANCE":
+                nb_click = 2
+                # 2 clicks on "b"
+                for _ in range(nb_click):
+                    pyautogui.press('b')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                # 1 click on "e"
+                pyautogui.press('e')
+                time.sleep(0.5)
+            elif type == "BAFFLE":
+                # 1 click on "s"
+                pyautogui.press('s')
+                time.sleep(0.5)
+
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                nb_click_bot = 2
+                # 2 clicks on "s"
+                for _ in range(nb_click_bot):
+                    pyautogui.press('s')
+                    time.sleep(0.5)
+            elif type == "CARESSOR":
+                nb_click = 2
+                # 2 clicks on "s"
+                for _ in range(nb_click):
+                    pyautogui.press('s')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                # 1 click on "s"
+                pyautogui.press('s')
+                time.sleep(0.5)
+
+            # click on first result
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(632, 595, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+        elif first == "OUI":
+            print("Pas encore codé")
+    elif gender == "MALE":
+        nb_click_male = 3
+        if first == "NON":
+
+            # click on first top searchbar
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(494, 112, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+            time.sleep(random.uniform(0.75, 1))
+
+            # 4 clicks on "m"
+            for _ in range(nb_click_male):
+                pyautogui.press('m')
+                time.sleep(0.5)
+
+            # click on first result
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(506, 144, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            # click on plus button
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(358, 115, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            # click on second searchbar
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(507, 149, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+
+            if type == "ENERGY":
+                nb_click = 3
+                # 3 clicks on "b"
+                for _ in range(nb_click):
+                    pyautogui.press('b')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                nb_click_bot = 2
+                # 2 clicks on "e"
+                for _ in range(nb_click_bot):
+                    pyautogui.press('e')
+                    time.sleep(0.5)
+            elif type == "LOVE":
+                # 1 click on "b"
+                pyautogui.press('b')
+                time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+                # 1 click on "a"
+                pyautogui.press('a')
+                time.sleep(0.5)
+            elif type == "ENDURANCE":
+                nb_click = 2
+                # 2 clicks on "b"
+                for _ in range(nb_click):
+                    pyautogui.press('b')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+                # click 1 time on "e"
+                pyautogui.press('e')
+                time.sleep(0.5)
+            elif type == "BAFFLE":
+                # 1 click on "s"
+                pyautogui.press('s')
+                time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                nb_click_bot = 2
+                # 2 clicks on "s"
+                for _ in range(nb_click_bot):
+                    pyautogui.press('s')
+                    time.sleep(0.5)
+            elif type == "CARESSOR":
+                nb_click = 2
+                # 2 clicks on "s"
+                for _ in range(nb_click):
+                    pyautogui.press('s')
+                    time.sleep(0.5)
+                # click on bot searchbar
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.moveTo(515, 629, duration=0.1)
+                time.sleep(random.uniform(0.75, 1))
+                pyautogui.leftClick()
+
+                # 1 click on "s"
+                pyautogui.press('s')
+                time.sleep(0.5)
+
+            # click on first result
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.moveTo(632, 595, duration=0.1)
+            time.sleep(random.uniform(0.75, 1))
+            pyautogui.leftClick()
+        elif first == "OUI":
+            print("Pas encore codé")
 
 
 
 if __name__ == "__main__":
     time.sleep(2)
-    add_items("ENERGY")
     open_window()
+    searchbar("BAFFLE", "NON", "FEMALE")
     close_window()
-    remove_items("ENERGY")
+    # add_items("ENERGY")
+    # open_window()
+    # close_window()
+    # remove_items("ENERGY")
+
+    # MALE CARESSOR
+    # FEMALE BAFFLE
