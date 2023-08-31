@@ -1,8 +1,25 @@
 import pyautogui
 import time
 import random
+import os
+
+
+def shutdown():
+    os.system("shutdown /s /f /t 0")
+    # time.sleep(random.uniform(1.5, 2.5))
+    # pyautogui.press('win')
+    # time.sleep(random.uniform(1.5, 2.5))
+    # pyautogui.moveTo(1209, 987, duration=0.1)
+    # time.sleep(random.uniform(1.5, 2.5))
+    # pyautogui.leftClick()
+    # time.sleep(random.uniform(1.5, 2.5))
+    # pyautogui.moveTo(1178, 913, duration=0.1)
+    # time.sleep(random.uniform(1.5, 2.5))
+    # pyautogui.leftClick()
 
 # function to open stable window
+
+
 def open_window():
     # click to open window
     time.sleep(random.uniform(1.5, 2.5))
@@ -12,8 +29,10 @@ def open_window():
     time.sleep(random.uniform(1.5, 2.5))
 
 # function to close stable window
+
+
 def close_window():
-    
+
     # click on backspace + "t" to reset filters bot
     time.sleep(random.uniform(0.75, 1))
     pyautogui.moveTo(522, 627, duration=0.1)
@@ -58,6 +77,8 @@ def close_window():
     time.sleep(random.uniform(1.5, 2.5))
 
 # function to add items to stable
+
+
 def add_items(type):
 
     # position of items inside
@@ -429,12 +450,12 @@ def searchbar(type, first, gender):
             print("Pas encore codé")
 
 
-
 if __name__ == "__main__":
     time.sleep(2)
-    open_window()
-    searchbar("BAFFLE", "NON", "FEMALE")
-    close_window()
+    shutdown()
+    # open_window()
+    # searchbar("BAFFLE", "NON", "FEMALE")
+    # close_window()
     # add_items("ENERGY")
     # open_window()
     # close_window()
