@@ -35,6 +35,7 @@ def bot_thread():  # main bot thread loop
         add_new_dd()
     print("Stop 1 thread")
 
+
 def ft_sleep(min_time_to_sleep, max_time_to_sleep):
     i = 0
     time_to_sleep = random.uniform(min_time_to_sleep, max_time_to_sleep)
@@ -55,6 +56,7 @@ def remove_done_dd():
     time.sleep(0.1)
     pyautogui.leftClick()
 
+
 def add_new_dd():
     time.sleep(0.1)
     pyautogui.moveTo(993, 151, duration=0.1)
@@ -64,6 +66,7 @@ def add_new_dd():
     pyautogui.moveTo(1153, 173, duration=0.1)
     time.sleep(0.1)
     pyautogui.leftClick()
+
 
 if __name__ == "__main__":
     time.sleep(2)
