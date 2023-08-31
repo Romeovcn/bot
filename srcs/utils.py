@@ -2,7 +2,7 @@ import pyautogui
 import time
 import random
 
-from srcs.globals import CONTINUE_THREAD
+from globals import CONTINUE_THREAD
 
 def ft_sleep(min_time_to_sleep, max_time_to_sleep):
     i = 0
@@ -75,3 +75,15 @@ def get_count_etable():
     elif pyautogui.pixel(510, 348) > (200, 200, 200): return 2 #2 +48
     elif pyautogui.pixel(510, 300) > (200, 200, 200): return 1 #1
     else: return 0
+
+def go_and_click(pos_x, pos_y):
+    # move mouse and left click
+    pyautogui.moveTo(pos_x, pos_y, duration=0.1)
+    time.sleep(random.uniform(0.1, 0.3))
+    pyautogui.leftClick()
+    time.sleep(random.uniform(0.1, 0.3))
+
+def press_key(key):
+    # press key
+    pyautogui.press(key)
+    time.sleep(random.uniform(0.075, 0.1))
