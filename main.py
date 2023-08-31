@@ -7,7 +7,9 @@ import threading
 
 from srcs.main_bot import do_main_bot
 from srcs.bot_seren_female import do_seren_female_bot
+from srcs.bot_seren_male import do_seren_male_bot
 from srcs.globals import CONTINUE_THREAD
+from srcs.utils import get_count_etable
 
 def check_exit_thread(): # check bot exit thread loop
     global CONTINUE_THREAD
@@ -21,11 +23,10 @@ def check_exit_thread(): # check bot exit thread loop
 
 def main_bot_thread(): # main bot thread loop
     # do_main_bot("ENDURANCE")
-    do_seren_female_bot()
+    do_seren_male_bot()
 
 if __name__ == "__main__":
     time.sleep(2)
-
     thread_1 = threading.Thread(target=check_exit_thread)
     thread_2 = threading.Thread(target=main_bot_thread)
 

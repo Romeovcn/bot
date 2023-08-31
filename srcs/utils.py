@@ -59,20 +59,19 @@ def get_count_enclos():
     return count
 
 def get_count_etable():
-    if pyautogui.pixel(997, 602)[1] > 200: return 10
-    elif pyautogui.pixel(997, 530)[1] > 200: return 11
-    elif pyautogui.pixel(997, 458)[1] > 200: return 12
-    elif pyautogui.pixel(997, 386)[1] > 200: return 13
-    elif pyautogui.pixel(997, 314)[1] > 200: return 14
-    elif pyautogui.pixel(997, 242)[1] > 200: return 15
+    if pyautogui.pixel(997, 602)[1] > 200: return 9
+    elif pyautogui.pixel(997, 538)[1] > 200: return 10
+    elif pyautogui.pixel(997, 474)[1] > 200: return 11
+    elif pyautogui.pixel(997, 410)[1] > 200: return 12
+    elif pyautogui.pixel(997, 346)[1] > 200: return 13
+    elif pyautogui.pixel(997, 282)[1] > 200: return 14
 
-    if pyautogui.pixel(510, 640) > (200, 200, 200): return 9 #9 +49
-    elif pyautogui.pixel(510, 591) > (200, 200, 200): return 8 #8 +48
-    elif pyautogui.pixel(510, 543) > (200, 200, 200): return 7 #7 +49
-    elif pyautogui.pixel(510, 494) > (200, 200, 200): return 6 #6 +48
-    elif pyautogui.pixel(510, 446) > (200, 200, 200): return 5 #5 +49
-    elif pyautogui.pixel(510, 397) > (200, 200, 200): return 4 #4 +48
-    elif pyautogui.pixel(510, 349) > (200, 200, 200): return 3 #3 +49
-    elif pyautogui.pixel(510, 300) > (200, 200, 200): return 2 #2 +48
-    elif pyautogui.pixel(510, 252) > (200, 200, 200): return 1 #1
+    if pyautogui.pixel(510, 633) > (200, 200, 200): return 8 #8 +48
+    elif pyautogui.pixel(510, 585) > (200, 200, 200): return 7 #7 +49
+    elif pyautogui.pixel(510, 538) > (200, 200, 200): return 6 #6 +48
+    elif pyautogui.pixel(510, 490) > (200, 200, 200): return 5 #5 +49
+    elif pyautogui.pixel(510, 442) > (200, 200, 200): return 4 #4 +48
+    elif pyautogui.pixel(510, 396) > (200, 200, 200): return 3 #3 +49
+    elif pyautogui.pixel(510, 348) > (200, 200, 200): return 2 #2 +48
+    elif pyautogui.pixel(510, 300) > (200, 200, 200): return 1 #1
     else: return 0
