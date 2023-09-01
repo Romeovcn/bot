@@ -1,6 +1,4 @@
-import pyautogui
 import time
-import random
 
 from srcs.utils import go_and_click
 from srcs.utils import press_key
