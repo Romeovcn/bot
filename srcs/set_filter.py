@@ -1,80 +1,66 @@
 import pyautogui
 import time
-from utils import go_and_click
-from utils import press_key
+from srcs.utils import go_and_click
+from srcs.utils import press_key
+from srcs.utils import translate_pos
+from srcs.utils import test
 
 # order to up DD : female -----> caressor -> love -> baffle -> endurance -> energy /// male -----> baffle -> endurance -> caressor -> love -> energy
 # always keep a special dd in etable for male / female
-def set_filters_stable(gender, type, is_first_cycle):
-    if is_first_cycle == "NO":
-        nb_click = 0
-        if gender == "FEMALE":
-            nb_click = 4
-        else:
-            nb_click = 3
 
-        #  click on first top filterbar
-        go_and_click(494, 112)
+def set_filter_etable(gender, type, is_first_cycle):
+    key = "t"
+    nbr_click = 0
 
-        # number clicks on "m"
-        for i in range(nb_click):
-            press_key('m')
+    if gender == "FEMALE": nbr_click = 4
+    elif gender == "MALE": nbr_click = 3
+    else: print("WRONG GENDER ARG set_filter_etable")
 
-        # click on plus button
-        go_and_click(358, 115)
+    go_and_click(translate_pos(732, 153)) # open first filter
+    press_key("backspace")
+    press_key(key)
+    
+    press_key("backspace")
+    for i in range(nbr_click): # number clicks on "m"
+        press_key('m')
+    go_and_click(translate_pos(477, 196)) # close first filter
 
-        # click on second searchbar
-        go_and_click(507, 149)
+    go_and_click(translate_pos(732, 201)) # open second filter
+    press_key("backspace")
+    press_key(key)
 
-        if type == "ENERGY":
-            nb_click = 3
-            key = 'b'
-        elif type == "LOVE":
-            nb_click = 1
-            key = 'b'
-        elif type == "ENDURANCE":
-            nb_click = 2
-            key = 'b'
-        elif type == "BAFFLE":
-            nb_click = 1
-            key = 's'
-        else:
-            nb_click = 2
-            key = 's'
+    if type == "ENERGIE": nbr_click, key = 3, 'b'
+    elif type == "AMOUR": nbr_click, key = 1, 'b'
+    elif type == "ENDURANCE": nbr_click, key = 2, 'b'
+    elif type == "POSITIVE": nbr_click, key = 1, 's'
+    elif type == "NEGATIVE": nbr_click, key = 2, 's'
+    else: print("WRONG GENDER ARG set_filter_etable")
 
-        # number clicks on key
-        for i in range(nb_click):
-            press_key(key)
-    elif is_first_cycle == "YES":
-        print("Pas encore codé")
+    press_key("backspace")
+    print(nbr_click)
+    print(key)
+    for i in range(nbr_click): # number clicks on key
+        press_key(key)
+    go_and_click(translate_pos(477, 196)) # close SECOND filter
 
 def set_filter_enclos(type):
+    key = "t"
     nbr_click=0
-    # click on bot filterbar
-    go_and_click(512, 627)
 
-    for i in range(26):
-        press_key('up')
+    go_and_click(translate_pos(902, 837))
+    press_key("backspace")
+    press_key(key)
 
-    if type == "NONE":
-        return
-    elif type == "AMOUR":
-        nbr_click = 16
-    elif type == "ENDURANCE":
-        nbr_click = 18
-    elif type == "ENERGIE":
-        nbr_click = 20
-    elif type == "POSITIVE":
-        nbr_click = 12
-    elif type == "NEGATIVE":
-        nbr_click = 13
-    elif type == "MATURITE":
-        nbr_click = 13
+    if type == "NONE": nbr_click = 0
+    elif type == "AMOUR": nbr_click, key = 1, "a"
+    elif type == "ENDURANCE": nbr_click, key = 1, "e"
+    elif type == "ENERGIE": nbr_click, key = 2, "e"
+    elif type == "POSITIVE": nbr_click, key = 1, "s"
+    elif type == "NEGATIVE": nbr_click, key = 2, "s"
+    else: print("WRONG TYPE ARG set_filter_enclos")
     
+    press_key("backspace")
     for i in range(nbr_click):
-        press_key('down')
-
-if __name__ == "__main__":
-    time.sleep(3)
-    set_filters_stable("MALE", "CARESSOR", "NO")
-    set_filter_enclos("POSITIVE")
+        pyautogui.press(key)
+        time.sleep(0.05)
+    go_and_click(translate_pos(496, 830))

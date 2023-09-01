@@ -20,7 +20,6 @@ def do_main_bot(bot_mode):
 
     if STOP_NEW.is_set() == False: add_new_dd()
     while STOP_THREAD.is_set() == False:
-        print("ok")
         if check_dd() == True: break
         pyautogui.press(key)
         key = "8" if key == "7" else "7"

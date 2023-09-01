@@ -3,14 +3,11 @@ import time
 from srcs.utils import go_and_click
 from srcs.utils import press_key
 
-# function to open stable window
-def open_window():
+def open_window(): # function to open stable window
     # click to open window / position of the door of stable
     go_and_click(1023, 589)
 
-# function to close stable window
-def close_window():
-
+def close_window(): # function to close stable window
     # click on backspace + "t" to reset filters bot
     go_and_click(522, 627)
     press_key('backspace')

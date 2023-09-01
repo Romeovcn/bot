@@ -1,9 +1,11 @@
 import pyautogui
 import time
 import random
+import math
 
 from config import STOP_NEW
 from config import STOP_THREAD
+from config import SCREEN_SIZE
 
 def ft_sleep(min_time_to_sleep, max_time_to_sleep):
     i = 0
@@ -44,47 +46,58 @@ def remove_done_dd(): # 0.6s
 
 def get_count_enclos():
     count = 0
-    if pyautogui.pixel(997, 927)[1] > 200: # do scroll
-        if pyautogui.pixel(997, 1094)[1] > 200: count = 6
-        elif pyautogui.pixel(997, 1067)[1] > 200: count = 7
-        elif pyautogui.pixel(997, 1047)[1] > 200: count = 8
-        elif pyautogui.pixel(997, 1034)[1] > 200: count = 9
+    if pyautogui.pixel(997, 927)[1] > 150: # do scroll
+        if pyautogui.pixel(997, 1094)[1] > 150: count = 6
+        elif pyautogui.pixel(997, 1067)[1] > 150: count = 7
+        elif pyautogui.pixel(997, 1047)[1] > 150: count = 8
+        elif pyautogui.pixel(997, 1034)[1] > 150: count = 9
         else: count = 10
     else:
-        if pyautogui.pixel(509, 1119) > (200, 200, 200): count = 5
-        elif pyautogui.pixel(509, 1072) > (200, 200, 200): count = 4
-        elif pyautogui.pixel(509, 1026) > (200, 200, 200): count = 3
-        elif pyautogui.pixel(509, 980) > (200, 200, 200): count = 2
-        elif pyautogui.pixel(509, 932) > (200, 200, 200): count = 1
+        if pyautogui.pixel(509, 1119) > (150, 150, 150): count = 5
+        elif pyautogui.pixel(509, 1072) > (150, 150, 150): count = 4
+        elif pyautogui.pixel(509, 1026) > (150, 150, 150): count = 3
+        elif pyautogui.pixel(509, 980) > (150, 150, 150): count = 2
+        elif pyautogui.pixel(509, 932) > (150, 150, 150): count = 1
     return count
 
 def get_count_etable():
-    if pyautogui.pixel(997, 602)[1] > 200: return 9
-    elif pyautogui.pixel(997, 538)[1] > 200: return 10
-    elif pyautogui.pixel(997, 474)[1] > 200: return 11
-    elif pyautogui.pixel(997, 410)[1] > 200: return 12
-    elif pyautogui.pixel(997, 346)[1] > 200: return 13
-    elif pyautogui.pixel(997, 282)[1] > 200: return 14
+    if pyautogui.pixel(997, 602)[1] > 150: return 9
+    elif pyautogui.pixel(997, 538)[1] > 150: return 10
+    elif pyautogui.pixel(997, 474)[1] > 150: return 11
+    elif pyautogui.pixel(997, 410)[1] > 150: return 12
+    elif pyautogui.pixel(997, 346)[1] > 150: return 13
+    elif pyautogui.pixel(997, 282)[1] > 150: return 14
 
-    if pyautogui.pixel(510, 633) > (200, 200, 200): return 8 #8 +48
-    elif pyautogui.pixel(510, 585) > (200, 200, 200): return 7 #7 +49
-    elif pyautogui.pixel(510, 538) > (200, 200, 200): return 6 #6 +48
-    elif pyautogui.pixel(510, 490) > (200, 200, 200): return 5 #5 +49
-    elif pyautogui.pixel(510, 442) > (200, 200, 200): return 4 #4 +48
-    elif pyautogui.pixel(510, 396) > (200, 200, 200): return 3 #3 +49
-    elif pyautogui.pixel(510, 348) > (200, 200, 200): return 2 #2 +48
-    elif pyautogui.pixel(510, 300) > (200, 200, 200): return 1 #1
+    if pyautogui.pixel(510, 633) > (150, 150, 150): return 8 #8 +48
+    elif pyautogui.pixel(510, 585) > (150, 150, 150): return 7 #7 +49
+    elif pyautogui.pixel(510, 538) > (150, 150, 150): return 6 #6 +48
+    elif pyautogui.pixel(510, 490) > (150, 150, 150): return 5 #5 +49
+    elif pyautogui.pixel(510, 442) > (150, 150, 150): return 4 #4 +48
+    elif pyautogui.pixel(510, 396) > (150, 150, 150): return 3 #3 +49
+    elif pyautogui.pixel(510, 348) > (150, 150, 150): return 2 #2 +48
+    elif pyautogui.pixel(510, 300) > (150, 150, 150): return 1 #1
     else: return 0
 
-def go_and_click(pos_x, pos_y):
-    # move mouse and left click
-    pyautogui.moveTo(pos_x, pos_y, duration=0.1)
+def go_and_click(pos): # move mouse and left click
+    pyautogui.moveTo(pos[0], pos[1], duration=0.1)
     time.sleep(random.uniform(0.1, 0.3))
     pyautogui.leftClick()
     time.sleep(random.uniform(0.1, 0.3))
 
-def press_key(key):
-    # press key
+def press_key(key): # press key
     pyautogui.press(key)
-    time.sleep(random.uniform(0.075, 0.1))
+    time.sleep(random.uniform(0.1, 0.1))
 
+def translate_pos(pos_x, pos_y):
+    if (SCREEN_SIZE) == (2560, 1440):
+        return (pos_x, pos_y)
+    ratio_x = 1920 / 2560
+    ratio_y = 1080 / 1440
+    new_x = math.ceil(pos_x * ratio_x)
+    new_y = math.ceil(pos_y * ratio_y)
+    return (new_x, new_y)
+
+def test(pos_x, pos_y):
+    ratio_x = 2560 / 1920
+    ratio_y = 1440 / 1080
+    return (pos_x * ratio_x, pos_y * ratio_y)
