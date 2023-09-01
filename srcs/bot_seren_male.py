@@ -3,30 +3,25 @@ import time
 import keyboard
 import threading
 import random
-import sys
 
-from srcs.globals import CONTINUE_THREAD
 from srcs.utils import ft_sleep
 from srcs.utils import add_new_dd
-
-ADD_NEW = True
-#  + 2560
+from config import STOP_NEW
+from config import STOP_THREAD
 
 def do_seren_male_bot():
-    global CONTINUE_THREAD
     key = "8"
 
-    if ADD_NEW: add_new_dd()
-    while CONTINUE_THREAD:
+    if STOP_NEW.is_set() == False: add_new_dd()
+    while STOP_THREAD.is_set() == False:
         if check_dd() == True: break
         pyautogui.press(key)
         key = "8" if key == "7" else "7"
     
-    CONTINUE_THREAD = False
+    STOP_THREAD.set()
     print("Stop 1 thread")
 
 def check_dd():
-    global ADD_NEW
     dd_removed = False
 
     if pyautogui.pixel(509, 934) < (200, 200, 200):
@@ -51,6 +46,6 @@ def check_dd():
             pyautogui.press("down")
             time.sleep(0.2)
     
-    if ADD_NEW == True and dd_removed == True:
+    if STOP_NEW.is_set() == False and dd_removed == True:
         add_new_dd()
     return False

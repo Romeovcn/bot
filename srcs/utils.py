@@ -2,19 +2,19 @@ import pyautogui
 import time
 import random
 
-from globals import CONTINUE_THREAD
+from config import STOP_NEW
+from config import STOP_THREAD
 
 def ft_sleep(min_time_to_sleep, max_time_to_sleep):
     i = 0
     time_to_sleep = random.uniform(min_time_to_sleep, max_time_to_sleep)
     while i < 100:
-        if CONTINUE_THREAD == False:
+        if STOP_THREAD.is_set():
             return True
         time.sleep(time_to_sleep / 100)
         i += 1
 
 def add_new_dd(): # total time = 0.6s
-    global ADD_NEW
     count = get_count_etable()
 
     pyautogui.moveTo(993, 151, duration=0.1)
@@ -27,9 +27,9 @@ def add_new_dd(): # total time = 0.6s
     time.sleep(0.1)
 
     new_count = get_count_etable()
-    print(f"count={count} new_count={new_count}")
     if new_count == 0 or new_count > count:
-        ADD_NEW = False
+        STOP_NEW.set()
+        print(f"new_count={new_count} count={count}")
         print("\033[31mStop to add new DD!\033[0m")
 
 def remove_done_dd(): # 0.6s

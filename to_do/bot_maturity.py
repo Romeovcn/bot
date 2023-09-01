@@ -5,14 +5,11 @@ import threading
 import random
 import sys
 
-CONTINUE_THREAD = True
 ADD_NEW = True
 LAST_NBR_ETABLE = 9
 #  + 2560
 
 def check_exit_thread(): # check bot exit thread loop
-    global CONTINUE_THREAD
-
     while CONTINUE_THREAD == True:
         if keyboard.is_pressed("0"):
             CONTINUE_THREAD = False

@@ -1,3 +1,0 @@
-CONTINUE_THREAD = True
-CONTINUE_BOT = True
-ADD_NEW = True

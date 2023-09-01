@@ -8,22 +8,17 @@ import threading
 from srcs.main_bot import do_main_bot
 from srcs.bot_seren_female import do_seren_female_bot
 from srcs.bot_seren_male import do_seren_male_bot
-from srcs.globals import CONTINUE_THREAD
-from srcs.utils import get_count_etable
+from config import STOP_THREAD
 
 def check_exit_thread(): # check bot exit thread loop
-    global CONTINUE_THREAD
-
-    print("EXIT STARTED")
-    while CONTINUE_THREAD:
+    while STOP_THREAD.is_set() == False:
         if keyboard.is_pressed("0"):
-            CONTINUE_THREAD = False
+            STOP_THREAD.set()
         time.sleep(0.01)
     print("exit thread stopped")
 
 def main_bot_thread(): # main bot thread loop
-    # do_main_bot("ENDURANCE")
-    do_seren_male_bot()
+    do_main_bot("AMOUR")
 
 if __name__ == "__main__":
     time.sleep(2)
