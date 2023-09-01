@@ -2,14 +2,18 @@ import pyautogui
 import time
 import random
 
+from srcs.utils import go_and_click
+from srcs.utils import press_key
+
 # function to add items to stable
-
-
 def add_items(type):
 
     # position of items inside (bonta stable)
-    position_item_etable = [[982, 532], [1034, 548],
-                            [889, 530], [889, 581], [938, 605]]
+    # follow schema to know indexes 
+    # ------5X--------
+    # -----1X-4X------
+    # ----2X---3X-----
+    position_item_etable = [[982, 532], [1034, 548], [889, 530], [889, 581], [938, 605]]
 
     # x and y by type in down inventory / order : page 1 -> endurance -> love -> caressor -> baffle / page 2 : maturity -> energy
     if type == "ENDURANCE":
@@ -28,37 +32,20 @@ def add_items(type):
         x = 850
         y = 988
         # change page for items / click on down arrow
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(1291, 1030, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
+        go_and_click(1291, 1030)
     elif type == "ENERGY":
         x = 1075
         y = 988
         # change page for items / click on down arrow
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(1291, 1030, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
+        go_and_click(1291, 1030)
 
     # loop to place items inside
     for i in range(0, 5):
         j = 45
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(x+j*i, y, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(
-            position_item_etable[0+i][0], position_item_etable[0+i][1], duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
+        go_and_click(x+j*i, y)
+        go_and_click(position_item_etable[0+i][0], position_item_etable[0+i][1], duration=0.1)
 
 # function to remove items
-
-
 def remove_items(type):
 
     # x, y of items inside bonta stable
@@ -69,15 +56,8 @@ def remove_items(type):
 
     # loop remove items
     for i in range(0, 5):
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(first_click[0+i][0],
-                         first_click[0+i][1], duration=0.1)
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(second_click[0+i][0],
-                         second_click[0+i][1], duration=0.1)
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
+        go_and_click(first_click[0+i][0], first_click[0+i][1])
+        go_and_click(second_click[0+i][0], second_click[0+i][1])
 
     # x and y by type on real inventory (five firsts items)
     x = 1544
@@ -103,39 +83,22 @@ def remove_items(type):
         y_drag_to = 988
 
     # open inventory / put your inventory shortcut here
-    pyautogui.press('p', interval=0.5)
-
+    press_key('p')
     for i in range(0, 5):
         j = 65
         k = 45
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(x-j*i, y, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.dragTo(x_drag_to+k*i, y_drag_to, duration=1)
-        time.sleep(random.uniform(0.75, 1))
-
-    time.sleep(random.uniform(0.75, 1))
-    pyautogui.moveTo(1584, 77, duration=0.1)
-    time.sleep(random.uniform(0.75, 1))
-    pyautogui.leftClick()
+        go_and_click(x-j*i, y)
+        go_and_click(x_drag_to+k*i, y_drag_to)
+    
+    go_and_click(1584, 77)
 
     # change page to back on starting page / click on up arrow 
     if type == "MATURITY":
         # change page for items
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(1291, 985, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
+        go_and_click(1291, 985)
     elif type == "ENERGY":
         # change page for items
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.moveTo(1291, 985, duration=0.1)
-        time.sleep(random.uniform(0.75, 1))
-        pyautogui.leftClick()
-        time.sleep(random.uniform(0.75, 1))
+        go_and_click(1291, 985)
 
 if __name__ == "__main__":
     time.sleep(2)

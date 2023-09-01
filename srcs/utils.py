@@ -87,3 +87,4 @@ def press_key(key):
     # press key
     pyautogui.press(key)
     time.sleep(random.uniform(0.075, 0.1))
+
