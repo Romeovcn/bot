@@ -61,12 +61,12 @@ def get_count_enclos():
     return count
 
 def get_count_etable():
-    if pyautogui.pixel(997, 602)[1] > 150: return 9
-    elif pyautogui.pixel(997, 538)[1] > 150: return 10
-    elif pyautogui.pixel(997, 474)[1] > 150: return 11
-    elif pyautogui.pixel(997, 410)[1] > 150: return 12
-    elif pyautogui.pixel(997, 346)[1] > 150: return 13
-    elif pyautogui.pixel(997, 282)[1] > 150: return 14
+    if pyautogui.pixel(997, 608)[1] > 150: return 9
+    elif pyautogui.pixel(997, 547)[1] > 150: return 10
+    elif pyautogui.pixel(997, 486)[1] > 150: return 11
+    elif pyautogui.pixel(997, 425)[1] > 150: return 12
+    elif pyautogui.pixel(997, 364)[1] > 150: return 13
+    elif pyautogui.pixel(997, 303)[1] > 150: return 14
 
     if pyautogui.pixel(510, 633) > (150, 150, 150): return 8 #8 +48
     elif pyautogui.pixel(510, 585) > (150, 150, 150): return 7 #7 +49
@@ -80,13 +80,13 @@ def get_count_etable():
 
 def go_and_click(pos): # move mouse and left click
     pyautogui.moveTo(pos[0], pos[1], duration=0.1)
-    time.sleep(random.uniform(0.1, 0.3))
+    time.sleep(random.uniform(0.2, 0.2))
     pyautogui.leftClick()
-    time.sleep(random.uniform(0.1, 0.3))
+    time.sleep(random.uniform(0.5, 0.5))
 
 def press_key(key): # press key
     pyautogui.press(key)
-    time.sleep(random.uniform(0.1, 0.1))
+    time.sleep(random.uniform(0.2, 0.2))
 
 def translate_pos(pos_x, pos_y):
     if (SCREEN_SIZE) == (2560, 1440):

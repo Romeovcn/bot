@@ -3,22 +3,18 @@ import time
 from srcs.utils import go_and_click
 from srcs.utils import press_key
 from srcs.utils import translate_pos
-from srcs.utils import test
 
-# order to up DD : female -----> caressor -> love -> baffle -> endurance -> energy /// male -----> baffle -> endurance -> caressor -> love -> energy
 # always keep a special dd in etable for male / female
+# order to up DD : FEMELLE -> POSITIVE -> AMOUR -> NEGATIVE -1100 -> ENDURANCE (-> MATURITE) -> ENERGIE 
+#                  MALE -> NEGATIVE -> ENDURANCE -> POSITIVE +1100 -> AMOUR (-> MATURITE) -> ENERGIE
 
-def set_filter_etable(gender, type, is_first_cycle):
-    key = "t"
-    nbr_click = 0
-
-    if gender == "FEMALE": nbr_click = 4
-    elif gender == "MALE": nbr_click = 3
-    else: print("WRONG GENDER ARG set_filter_etable")
+def set_filter_etable_female(type, is_first_cycle):
+    if is_first_cycle == False: nbr_click = 4
+    else: nbr_click = 5
 
     go_and_click(translate_pos(732, 153)) # open first filter
     press_key("backspace")
-    press_key(key)
+    press_key("t")
     
     press_key("backspace")
     for i in range(nbr_click): # number clicks on "m"
@@ -27,14 +23,46 @@ def set_filter_etable(gender, type, is_first_cycle):
 
     go_and_click(translate_pos(732, 201)) # open second filter
     press_key("backspace")
-    press_key(key)
+    press_key("t")
 
-    if type == "ENERGIE": nbr_click, key = 3, 'b'
-    elif type == "AMOUR": nbr_click, key = 1, 'b'
-    elif type == "ENDURANCE": nbr_click, key = 2, 'b'
+    if type == "AMOUR": nbr_click, key = 1, 'b'
+    elif type == "ENDURANCE": nbr_click, key = 1, 'b'
+    elif type == "ENERGIE": nbr_click, key = 1, 'b'
     elif type == "POSITIVE": nbr_click, key = 1, 's'
-    elif type == "NEGATIVE": nbr_click, key = 2, 's'
-    else: print("WRONG GENDER ARG set_filter_etable")
+    elif type == "NEGATIVE": nbr_click, key = 2, 's' # PROBLEM MUST BE 2 THEN 1
+    elif type == "MATURITE": nbr_click, key = 2, 'b'
+    else: return print("WRONG GENDER ARG set_filter_etable")
+
+    press_key("backspace")
+    print(nbr_click)
+    print(key)
+    for i in range(nbr_click): # number clicks on key
+        press_key(key)
+    go_and_click(translate_pos(477, 196)) # close SECOND filter
+
+def set_filter_etable_male(type, is_first_cycle):
+    if is_first_cycle == False: nbr_click = 4
+    else: nbr_click = 5
+
+    go_and_click(translate_pos(732, 153)) # open first filter
+    press_key("backspace")
+    press_key("t")
+    
+    press_key("backspace")
+    for i in range(nbr_click): # number clicks on "m"
+        press_key('m')
+    go_and_click(translate_pos(477, 196)) # close first filter
+
+    go_and_click(translate_pos(732, 201)) # open second filter
+    press_key("backspace")
+    press_key("t")
+
+    if type == "AMOUR": nbr_click, key = 1, 'b'
+    elif type == "ENDURANCE": nbr_click, key = 1, 'b'
+    if type == "ENERGIE": nbr_click, key = 3, 'b'
+    elif type == "POSITIVE": nbr_click, key = 1, 's'
+    elif type == "NEGATIVE": nbr_click, key = 1, 's'
+    else: return print("WRONG GENDER ARG set_filter_etable")
 
     press_key("backspace")
     print(nbr_click)
