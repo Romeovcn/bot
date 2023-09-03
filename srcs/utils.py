@@ -96,8 +96,3 @@ def translate_pos(pos_x, pos_y):
     new_x = math.ceil(pos_x * ratio_x)
     new_y = math.ceil(pos_y * ratio_y)
     return (new_x, new_y)
-
-def test(pos_x, pos_y):
-    ratio_x = 2560 / 1920
-    ratio_y = 1440 / 1080
-    return (pos_x * ratio_x, pos_y * ratio_y)
