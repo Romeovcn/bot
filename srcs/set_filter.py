@@ -41,6 +41,7 @@ def set_filter_etable_female(type, is_first_cycle, is_maturity_cycle):
     go_and_click(translate_pos(477, 196)) # close SECOND filter
 
 def set_filter_etable_male(type, is_first_cycle, is_maturity_cycle):
+    if STOP_THREAD.is_set(): return True
     if is_first_cycle == False: nbr_click = 3
     else: nbr_click = 4
 
@@ -71,6 +72,7 @@ def set_filter_etable_male(type, is_first_cycle, is_maturity_cycle):
     for i in range(nbr_click): # number clicks on key
         press_key(key)
     go_and_click(translate_pos(477, 196)) # close SECOND filter
+    return False
 
 def set_filter_enclos(type):
     key = "t"
@@ -93,3 +95,4 @@ def set_filter_enclos(type):
         pyautogui.press(key)
         time.sleep(0.05)
     go_and_click(translate_pos(496, 830))
+    return False

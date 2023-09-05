@@ -29,98 +29,98 @@ def check_exit_thread(): # check bot exit thread loop
 def do_female(first_cycle):
     return
     # -------- SERENITE POSITIVE --------
-    # add_items("POSITIVE") # PLACER CARESSEUR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("NEGATIVE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE SERENITE NEGATIVE
-    # set_filter_enclos("POSITIVE") # METTRE FILTRE ENCLOS POSITIVE
+    # if add_items("POSITIVE"): return # PLACER CARESSEUR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("NEGATIVE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE SERENITE NEGATIVE
+    # if set_filter_enclos("POSITIVE"): return # METTRE FILTRE ENCLOS POSITIVE
     # do_main_bot("POSITIVE") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # -------- AMOUR --------
-    # add_items("AMOURE") # PLACER DRAGOFESSES
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("AMOUR", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN AMOUR
-    # set_filter_enclos("AMOUR") # METTRE FILTRE ENCLOS AMOUR SUFFISANT
+    # if add_items("AMOUR"): return: return # PLACER DRAGOFESSES
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("AMOUR", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN AMOUR
+    # if set_filter_enclos("AMOUR"): return # METTRE FILTRE ENCLOS AMOUR SUFFISANT
     # do_main_bot("AMOUR") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # ----- SERENITE NEGATIVE -1200 -----
-    # add_items("NEGATIVE") # PLACER BAFFEURS
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("POSITIVE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE SERENITE POSITIVE
-    # set_filter_enclos("NONE") # METTRE FILTRE ENCLOS SERENITE NEGATIVE
+    # if add_items("NEGATIVE"): return: return # PLACER BAFFEURS
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("POSITIVE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE SERENITE POSITIVE
+    # if set_filter_enclos("NONE"): return # METTRE FILTRE ENCLOS SERENITE NEGATIVE
     # do_seren_female_bot() # BOT SERENITE FEMELLE
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # -------- ENDURANCE --------
-    # add_items("ENDURANCE") # PLACER FOUDROYEUR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("ENDURANCE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN ENDURANCE
-    # set_filter_enclos("ENDURANCE") # METTRE FILTRE ENCLOS ENDURANCE SUFFISANT
+    # if add_items("ENDURANCE"): return: return # PLACER FOUDROYEUR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("ENDURANCE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN ENDURANCE
+    # if set_filter_enclos("ENDURANCE"): return # METTRE FILTRE ENCLOS ENDURANCE SUFFISANT
     # do_main_bot("ENDURANCE") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
-    # -------- (OPTION MATURITE) --------
-    # add_items("MATURITE") # PLACER ABREUVOIR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("MATURITE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN DE MATURITE
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
+    # -------- (OPTION MATURITE): return --------
+    # if add_items("MATURITE"): return: return # PLACER ABREUVOIR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("MATURITE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN DE MATURITE
     # do_maturity_bot() # BOT MATURITE
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # ------------ ENERGIE ------------
-    # add_items("ENERGIE") # PLACER MANGEOIRE
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_female("ENERGIE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN D'ENERGIE
-    # set_filter_enclos("ENERGIE") # METTRE FILTRE ENCLOS ENERGIE AU MAXIMUM
+    # if add_items("ENERGIE"): return: return # PLACER MANGEOIRE
+    # if open_window(): return # OUVRIR ELEVAGE
+    # if set_filter_etable_female("ENERGIE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN D'ENERGIE
+    # if set_filter_enclos("ENERGIE"): return # METTRE FILTRE ENCLOS ENERGIE AU MAXIMUM
     # do_main_bot("ENERGIE") # MAIN BOT
     # ----------- FIN FEMELLE -----------
     STOP_THREAD.set()
 
 def do_male(first_cycle):
     # -------- SERENITE NEGATIVE --------
-    # add_items("NEGATIVE") # PLACER BAFFEUR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_male("POSITIVE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE SERENITE NEGATIVE
-    # set_filter_enclos("NEGATIVE") # METTRE FILTRE ENCLOS NEGATIVE
+    # if add_items("NEGATIVE"): return: return # PLACER BAFFEUR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # set_filter_etable_male("POSITIVE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE SERENITE NEGATIVE
+    # if set_filter_enclos("NEGATIVE"): return # METTRE FILTRE ENCLOS NEGATIVE
     # do_main_bot("NEGATIVE") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # -------- ENDURANCE --------
-    # add_items("ENDURANCE") # PLACER FOUDROYEUR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_male("ENDURANCE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN ENDURANCE
-    # set_filter_enclos("ENDURANCE") # METTRE FILTRE ENCLOS ENDURANCE SUFFISANT
+    # if add_items("ENDURANCE"): return: return # PLACER FOUDROYEUR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # set_filter_etable_male("ENDURANCE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN ENDURANCE
+    # if set_filter_enclos("ENDURANCE"): return # METTRE FILTRE ENCLOS ENDURANCE SUFFISANT
     # do_main_bot("ENDURANCE") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # ----- SERENITE NEGATIVE +1200 -----
-    # add_items("POSITIVE") # PLACER CARESSEUR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_male("NEGATIVE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE SERENITE POSITIVE
-    # set_filter_enclos("NONE") # METTRE FILTRE ENCLOS SERENITE NEGATIVE
+    # if add_items("POSITIVE"): return: return # PLACER CARESSEUR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # set_filter_etable_male("NEGATIVE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE SERENITE POSITIVE
+    # if set_filter_enclos("NONE"): return # METTRE FILTRE ENCLOS SERENITE NEGATIVE
     # do_seren_male_bot() # BOT SERENITE FEMELLE
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
     # -------- AMOUR --------
-    # add_items("AMOURE") # PLACER DRAGOFESSES
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_male("AMOUR", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN AMOUR
-    # set_filter_enclos("AMOUR") # METTRE FILTRE ENCLOS AMOUR SUFFISANT
+    # if add_items("AMOUR"): return: return # PLACER DRAGOFESSES
+    # if open_window(): return # OUVRIR ELEVAGE
+    # set_filter_etable_male("AMOUR", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN AMOUR
+    # if set_filter_enclos("AMOUR"): return # METTRE FILTRE ENCLOS AMOUR SUFFISANT
     # do_main_bot("AMOUR") # MAIN BOT
-    # close_window() # FERMER ELEVAGE
-    # remove_items() # ENLEVER ITEMS
-    # -------- (OPTION MATURITE) --------
-    # add_items("MATURITE") # PLACER ABREUVOIR
-    # open_window() # OUVRIR ELEVAGE
-    # set_filter_etable_male("MATURITE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN DE MATURITE
+    # if close_window(): return # FERMER ELEVAGE
+    # if remove_items(): return # ENLEVER ITEMS
+    # -------- (OPTION MATURITE): return --------
+    # if add_items("MATURITE"): return: return # PLACER ABREUVOIR
+    # if open_window(): return # OUVRIR ELEVAGE
+    # set_filter_etable_male("MATURITE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN DE MATURITE
     # do_maturity_bot() # BOT MATURITE
-    # close_window() # FERMER ELEVAGE
-    remove_items() # ENLEVER ITEMS
+    # if close_window(): return # FERMER ELEVAGE
+    if remove_items(): return # ENLEVER ITEMS
     # ------------ ENERGIE ------------
-    add_items("ENERGIE") # PLACER MANGEOIRE
-    open_window() # OUVRIR ELEVAGE
-    set_filter_etable_male("ENERGIE", first_cycle, True) # METTRE FILTRE ETABLE FEMELLE BESOIN D'ENERGIE
-    set_filter_enclos("ENERGIE") # METTRE FILTRE ENCLOS ENERGIE AU MAXIMUM
+    if add_items("ENERGIE"): return: return # PLACER MANGEOIRE
+    if open_window(): return # OUVRIR ELEVAGE
+    set_filter_etable_male("ENERGIE", first_cycle, True): return # METTRE FILTRE ETABLE FEMELLE BESOIN D'ENERGIE
+    if set_filter_enclos("ENERGIE"): return # METTRE FILTRE ENCLOS ENERGIE AU MAXIMUM
     do_main_bot("ENERGIE") # MAIN BOT
     # ----------- FIN FEMELLE -----------
     STOP_THREAD.set()
